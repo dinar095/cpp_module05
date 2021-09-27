@@ -1,5 +1,5 @@
-NAME = bureaucrat
-CLASS = Bureaucrat
+NAME = animal
+CLASS = Animal Cat Dog WrongAnimal WrongCat
 HEADER = $(patsubst %,%.hpp,$(CLASS))
 FUNCTIONS = main $(CLASS)
 

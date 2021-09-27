@@ -10,7 +10,7 @@ using std::string;
 class Bureaucrat
 {
 public:
-	Bureaucrat(string const name);
+	Bureaucrat(string name);
 	Bureaucrat(string name, int grade);
 	~Bureaucrat() {};
 	const string getName() const;
