@@ -1,8 +1,5 @@
 #include "Bureaucrat.hpp"
-//TODO:
-//1.  operator =
-//2. Bureaucrat(Bureaucrat)
-//3. Makefile
+
 
 int main()
 {

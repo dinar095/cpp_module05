@@ -27,10 +27,10 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrGrade()
 {
 
-	if (grade > 1)
-		grade--;
-	else
+	if ((grade - 1) < 1)
 		throw Bureaucrat::GradeTooHighException();
+		grade--;
+
 }
 
 void Bureaucrat::decrGrade()
@@ -42,12 +42,19 @@ void Bureaucrat::decrGrade()
 
 }
 
-//Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
-//{
-//	if (this == &src)
-//		return *this;
-//	if ()
-//}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
+{
+	if (this == &src)
+		return *this;
+	grade = src.grade;
+	return *this;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &src)
+{
+	*this = src;
+}
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat const &src)
 {
@@ -57,12 +64,12 @@ std::ostream& operator<<(std::ostream &out, Bureaucrat const &src)
 	return out;
 }
 
-char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");
 }
 
-char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
 }

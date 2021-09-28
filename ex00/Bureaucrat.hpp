@@ -21,13 +21,11 @@ public:
 	Bureaucrat(const Bureaucrat& src);
 	class GradeTooHighException : public std::exception
 		{
-		public:
-			virtual char* what() const throw();
+			virtual const char* what() const throw();
 		};
 	class GradeTooLowException : public std::exception
 		{
-		public:
-			virtual char* what() const throw();
+			virtual const char* what() const throw();
 		};
 private:
 	int grade;
