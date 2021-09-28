@@ -27,10 +27,9 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrGrade()
 {
 
-	if (grade > 1)
-		grade--;
-	else
+	if ((grade - 1) < 1)
 		throw Bureaucrat::GradeTooHighException();
+	grade--;
 }
 
 void Bureaucrat::decrGrade()
@@ -42,12 +41,19 @@ void Bureaucrat::decrGrade()
 
 }
 
-//Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
-//{
-//	if (this == &src)
-//		return *this;
-//	if ()
-//}
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
+{
+	if (this == &src)
+		return *this;
+	grade = src.getGrade();
+	return *this;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.getName())
+{
+	*this = src;
+}
+
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat const &src)
 {
@@ -57,14 +63,21 @@ std::ostream& operator<<(std::ostream &out, Bureaucrat const &src)
 	return out;
 }
 
-char* Bureaucrat::GradeTooHighException::what() const throw()
+void Bureaucrat::signForm(const Form& src) const
+{
+
+	if (src.getSign())
+		cout << name << " signs " << src.getName() << endl;
+	else if (this->getGrade() > src.getSignGrade())
+		cout << name << " cannot sign \"" << src.getName() << "\" because grade is too low" << endl;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");
 }
 
-char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
 }
-
-
