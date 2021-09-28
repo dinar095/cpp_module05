@@ -4,6 +4,7 @@
 //TODO: signForm function to the Bureaucrat
 //TODO : TESTS in main
 //TODO opertator = and copy
+//TODO : in Form class exeption for notSigned
 
 
 int main()
