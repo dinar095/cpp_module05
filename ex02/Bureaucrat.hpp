@@ -10,15 +10,15 @@ using std::string;
 class Bureaucrat
 {
 public:
-	Bureaucrat(string const name);
+	Bureaucrat(string name);
 	Bureaucrat(string name, int grade);
 	~Bureaucrat() {};
 	const string getName() const;
 	int getGrade() const;
 	void incrGrade();
 	void decrGrade();
-	Bureaucrat& operator=(const Bureaucrat& src);
-	Bureaucrat(const Bureaucrat& src);
+//	Bureaucrat& operator=(const Bureaucrat& src);
+//	Bureaucrat(const Bureaucrat& src);
 	class GradeTooHighException : public std::exception
 		{
 		public:
