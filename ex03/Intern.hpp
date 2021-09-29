@@ -13,11 +13,17 @@ using std::string;
 
 class Intern
 {
+public:
 	Intern() {};
 	~Intern() {};
-	Intern(const Intern& src) {};
-	Intern& operator=(const Intern& src) {};
-	Form* makeForm(string form, string name);
+	Intern(const Intern& src);
+	Intern& operator=(const Intern& src);
+	Form* makeForm(string form, const string& target);
+private:
+	class InternException : public std::exception
+			{
+				virtual const char* what() const throw();
+			};
 };
 
 

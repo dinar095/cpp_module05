@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 
@@ -10,11 +11,18 @@ int main()
 {
 	try
 	{
-		Form * maison = new ShrubberyCreationForm("Maison");
-		Form * walle = new RobotomyRequestForm("Wall-E");
-		Form * sarkozy = new PresidentialPardonForm("Sarkozy");
-
+		Intern someRandomIntern;
+		Form * maison;
+		Form * walle;
+		Form * sarkozy;
+		Form * blender;
 		Bureaucrat sean("Sean Paul", 1);
+
+		(void)blender;
+		maison 	= someRandomIntern.makeForm("shrubbery creation", "Maison");
+		walle 	= someRandomIntern.makeForm("robotomy request", "Wall-E");
+		sarkozy = someRandomIntern.makeForm("presidential pardon", "Sarkozy");
+		//blender = someRandomIntern.makeForm("blender", "Blender");
 
 		std::cout << sean << std::endl;
 		std::cout << *maison << std::endl;
@@ -51,6 +59,7 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+
 
 	return (0);
 
