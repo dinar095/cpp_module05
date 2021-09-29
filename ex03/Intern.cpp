@@ -16,8 +16,9 @@ Form* Intern::makeForm(string form, const string& target)
 		case 0: return new RobotomyRequestForm(target);
 		case 1: return new PresidentialPardonForm(target);
 		case 2: return new ShrubberyCreationForm(target);
-		case 3: Intern::InternException();
 	}
+	throw Intern::InternException();
+	return (NULL);
 }
 
 

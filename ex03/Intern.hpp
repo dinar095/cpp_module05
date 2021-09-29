@@ -19,7 +19,6 @@ public:
 	Intern(const Intern& src);
 	Intern& operator=(const Intern& src);
 	Form* makeForm(string form, const string& target);
-private:
 	class InternException : public std::exception
 			{
 				virtual const char* what() const throw();

@@ -22,12 +22,13 @@ int main()
 		maison 	= someRandomIntern.makeForm("shrubbery creation", "Maison");
 		walle 	= someRandomIntern.makeForm("robotomy request", "Wall-E");
 		sarkozy = someRandomIntern.makeForm("presidential pardon", "Sarkozy");
-		//blender = someRandomIntern.makeForm("blender", "Blender");
+//		blender = someRandomIntern.makeForm("asfdg", "Blender");
 
 		std::cout << sean << std::endl;
 		std::cout << *maison << std::endl;
 		std::cout << *walle << std::endl;
 		std::cout << *sarkozy << std::endl;
+
 
 		sean.signForm(*maison);
 		maison->beSigned(sean);

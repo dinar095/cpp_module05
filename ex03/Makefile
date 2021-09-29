@@ -1,5 +1,5 @@
-NAME = form
-CLASS = Bureaucrat Form PresidentialPardonForm RobotomyRequestForm ShrubberyCreationForm
+NAME = intern
+CLASS = Bureaucrat Form PresidentialPardonForm Intern RobotomyRequestForm ShrubberyCreationForm
 HEADER = $(patsubst %,%.hpp,$(CLASS))
 FUNCTIONS = main $(CLASS)
 
