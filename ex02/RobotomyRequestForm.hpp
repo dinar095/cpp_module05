@@ -6,7 +6,12 @@ class RobotomyRequestForm : public Form
 {
 public:
 	RobotomyRequestForm(string const & target);
-	~RobotomyRequestForm();
+	~RobotomyRequestForm() {};
+	RobotomyRequestForm(const RobotomyRequestForm& src);
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& src);
+	virtual void execute(Bureaucrat const & executor) const;
+private:
+	string target;
 };
 
 

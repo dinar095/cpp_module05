@@ -1,5 +1,4 @@
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const string &target) : Form(target, 145, 137), target(target)
 {}
@@ -8,8 +7,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
 	if (executor.getGrade() > getExecGrade()) //check Bureaucrat
 		throw Bureaucrat::GradeTooLowException();
-//	else if (!getSign()) //check Form
-//		throw Form::notSigned();
+	else if (!getSign()) //check Form
+		throw Form::notSigned();
 	else
 	{
 		string tree;
@@ -22,10 +21,24 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 			   "   `&%\\ ` /%&'    |.|        \\ '|8'\n"
 			   "       |o|        | |         | |\n"
 			   "       |.|        | |         | |\n"
-			   "jgs \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_";
+			   "    \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_";
 
-		std::ofstream file(target + "_shrubbery");
+		std::ofstream file((target + "_shrubbery").c_str());
 		file << tree;
 		file.close();
 	}
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : Form(target, 145,137)
+{
+	*this = src;
+}
+
+ShrubberyCreationForm &
+ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
+{
+	if (this == &src)
+		return *this;
+	target = src.target;
+	return *this;
 }

@@ -51,6 +51,11 @@ Form::Form(const Form &src) : name(src.getName()), signGrade(src.getSignGrade())
 	*this = src;
 }
 
+Form::Form() : name("noname"), signGrade(150), execGrade(150), sign(false)
+{
+
+}
+
 const char *Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");
@@ -59,6 +64,11 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
+}
+
+const char *Form::notSigned::what() const throw()
+{
+	return ("Form not signed");
 }
 
 std::ostream& operator<<(std::ostream &out, Form const &src)

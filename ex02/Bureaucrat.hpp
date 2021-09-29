@@ -24,6 +24,7 @@ public:
 	Bureaucrat& operator=(const Bureaucrat& src);
 	Bureaucrat(const Bureaucrat& src);
 	void signForm(const Form& src) const;
+	void executeForm(Form const & form);
 	class GradeTooHighException : public std::exception
 		{
 			virtual const char* what() const throw();

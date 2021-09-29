@@ -72,6 +72,14 @@ void Bureaucrat::signForm(const Form& src) const
 		cout << name << " cannot sign \"" << src.getName() << "\" because grade is too low" << endl;
 }
 
+void Bureaucrat::executeForm(const Form &form)
+{
+	if (!form.getSign())
+		throw Form::notSigned();
+	form.execute(*this);
+	cout << name << " executes " << form.getName() << endl;
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");

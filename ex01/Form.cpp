@@ -1,6 +1,7 @@
 #include "Form.hpp"
 
 
+
 Form::Form(string name, int signgrade, int execgrade) : name(name), signGrade(signgrade), execGrade(execgrade), sign(false)
 {
 	if (signgrade > 150 || execgrade > 150)
@@ -42,6 +43,7 @@ Form& Form::operator=(const Form &src)
 	if (this == &src)
 		return *this;
 	else
+
 		sign = src.getSign();
 	return *this;
 }
@@ -50,6 +52,7 @@ Form::Form(const Form &src) : name(src.getName()), signGrade(src.getSignGrade())
 {
 	*this = src;
 }
+
 
 const char *Form::GradeTooHighException::what() const throw()
 {
@@ -67,3 +70,4 @@ std::ostream& operator<<(std::ostream &out, Form const &src)
 	out << src.getSignGrade() << " execGrade: " << src.getExecGrade();
 	return out;
 }
+
